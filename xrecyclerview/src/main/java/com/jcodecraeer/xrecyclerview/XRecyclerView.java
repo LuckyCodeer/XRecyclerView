@@ -560,7 +560,7 @@ public class XRecyclerView extends RecyclerView {
         }
 
         public boolean isRefreshHeader(int position) {
-            return position == 0;
+            return position == 0 && pullRefreshEnabled;
         }
 
         public int getHeadersCount() {
