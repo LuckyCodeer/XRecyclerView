@@ -356,7 +356,7 @@ public class XRecyclerView extends RecyclerView {
         mWrapAdapter.adapter.notifyItemRemoved(adjPos);
         mWrapAdapter.adapter.notifyItemRangeChanged(headerSize, listData.size(),new Object());
     }
-    
+
     public<T> void notifyItemInserted(List<T> listData,int position) {
         if(mWrapAdapter.adapter == null)
             return;
@@ -560,7 +560,7 @@ public class XRecyclerView extends RecyclerView {
         }
 
         public boolean isRefreshHeader(int position) {
-            return position == 0 && pullRefreshEnabled;
+            return position == 0;
         }
 
         public int getHeadersCount() {
@@ -571,7 +571,7 @@ public class XRecyclerView extends RecyclerView {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            if (viewType == TYPE_REFRESH_HEADER) {
+            if (viewType == TYPE_REFRESH_HEADER && mRefreshHeader != null) {
                 return new SimpleViewHolder(mRefreshHeader);
             } else if (isHeaderType(viewType)) {
                 return new SimpleViewHolder(getHeaderViewByType(viewType));
